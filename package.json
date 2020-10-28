@@ -1,0 +1,17 @@
+{
+  "name": "mini-shop-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/sedice/mini-shop-server.git",
+  "author": "zengqinglong <1812874008@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon ./src/index.js"
+  },
+  "dependencies": {
+    "koa": "^2.13.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^9.4.0",
+    "koa-static": "^5.0.0"
+  }
+}
