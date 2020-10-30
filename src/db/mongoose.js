@@ -14,7 +14,8 @@ db.on('open',() => {
 mongoose.set('useCreateIndex', true);
 mongoose.connect(config.dburl,{
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  autoIndex:false,
 });
 
 module.exports = mongoose;
