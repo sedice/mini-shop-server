@@ -1,16 +1,19 @@
-const router = require("koa-router")();
-const {NOT_FOUND} = require("./utils/response-helper")
+const { apiVersion,token } = require("././config");
+const koaJwt = require("koa-jwt");
+const router = require("koa-router")({
+  prefix: `/api/v${apiVersion}`,
+});
+
+const jwt = koaJwt({secret:token.secret});
 
 module.exports = (app) => {
-  const {controller} = app;
-  router.get("/user/login",controller.user.login);
-  // 404
-  app.use(async (ctx,next) => {
-    await next();
-    if (ctx.response.status === 404) {
-      NOT_FOUND(ctx)
-    }
-  });
+  const { controller } = app;
+  router.get("/test", jwt,controller.test.test);
+  router.post("/users/login", controller.user.login);
+  router.post("/users/regist", controller.user.regist);
+
   app.use(router.routes());
   app.use(router.allowedMethods());
 };
+
+

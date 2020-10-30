@@ -19,6 +19,6 @@ function installModule(app,moduleName) {
 module.exports = (app) => {
   ['controller','service','model'].forEach(name => {
     installModule(app,name);
-    console.log(app[name]);
+    // console.log(app[name]);
   })
 }
